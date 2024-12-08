@@ -1,57 +1,118 @@
 "use client"
 
-import { useState } from "react";
+
+import "remixicon/fonts/remixicon.css";
+import { useState } from "react"; // Corrected import
 import Link from "next/link";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [istrans, settrans] = useState(-100); // Store only the value
 
   return (
     <>
-      {/* Navbar Container */}
       <div
-        className="navbar flex justify-between items-center px-4 py-4 bg-white shadow-md"
-        style={{ height: "74px" }}
+        style={{ height: "74px", padding: "14px 0px" }}
+        className="navbar flex justify-between items-center"
       >
-        {/* Menu Icon (Mobile) */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-gray-600 focus:outline-none"
-          >
-            <i className={`ri-${isMenuOpen ? "close" : "menu"}-line text-2xl`}></i>
-          </button>
+        {/* Hamburger Menu Icon */}
+        <i
+          className="ri-menu-line block md:hidden text-2xl ml-3"
+          onClick={() => settrans(0)} // Corrected onClick
+        ></i>
+
+        {/* Sidebar Menu */}
+        <div
+          className="menu absolute flex-col bg-white w-32 pl-8 z-50 transition-transform"
+          style={{ transform: `translateX(${istrans}%)` }} // Fixed syntax
+        >
+          <i
+            className="ri-close-circle-line absolute cursor-pointer text-xl"
+            style={{ right: "5px", top: "0px" }}
+            onClick={() => settrans(-100)} // Close menu
+          ></i>
+          <ul>
+            <Link href="/">
+            <li
+              className="list-none"
+              style={{ fontSize: "14px", fontWeight: "500", color: "#007580" }}
+            >
+              Home
+            </li>
+            </Link>
+
+
+
+            <Link href="/AllProducts">
+            <li className="list-none" style={{ fontSize: "14px", fontWeight: "500" }}>
+              Products
+            </li>
+            </Link>
+
+            
+           <Link href="/Faq">
+           <li className="list-none" style={{ fontSize: "14px", fontWeight: "500" }}>
+              FAQ
+            </li>
+           </Link>
+
+
+            <Link href="/Contact">
+            <li className="list-none" style={{ fontSize: "14px", fontWeight: "500" }}>
+              Contact Us
+            </li>
+            </Link>
+
+
+            <Link href="/About">
+            <li className="list-none" style={{ fontSize: "14px", fontWeight: "500" }}>
+              About
+            </li>
+            </Link>
+          </ul>
         </div>
 
-        {/* Navigation Links */}
-        <ul
-          className={`absolute md:relative bg-white md:bg-transparent left-0 top-[74px] md:top-0 w-full md:w-auto flex flex-col md:flex-row md:items-center gap-4 p-4 md:p-0 transition-transform duration-300 md:transform-none ${
-            isMenuOpen ? "transform translate-x-0" : "transform -translate-x-full"
-          }`}
+        {/* Desktop Menu */}
+        <div
+          className="lists hidden sm:none md:flex items-center"
+          style={{ gap: "32px" }}
         >
-          <li className="list-none text-sm font-medium text-teal-600 md:text-gray-800 hover:text-teal-700">
-            <Link href="/">Home</Link>
+          <Link href="/">
+          <li
+            className="list-none"
+            style={{ fontSize: "14px", fontWeight: "500", color: "#007580" }}
+          >
+            Home
           </li>
-          
-          <li className="list-none text-sm font-medium hover:text-teal-700">
-          <Link href="/AllProducts">Products</Link>
-          </li>
-          <li className="list-none text-sm font-medium hover:text-teal-700">
-          <Link href="/Faq">FAQ</Link>
-          </li>
-          <li className="list-none text-sm font-medium hover:text-teal-700">
-          <Link href="/Contact">Contact Us</Link>
-          </li>
-          <li className="list-none text-sm font-medium hover:text-teal-700">
-          <Link href="/About">About</Link>
-          </li>
-        </ul>
+          </Link>
 
-        {/* Contact Info */}
-        <div className="hidden md:block">
-          <p className="text-sm font-light">
+          <Link href="/AllProducts">
+          <li className="list-none " style={{ fontSize: "14px", fontWeight: "500"}}>
+            Products
+          </li>
+          </Link>
+          
+          <Link href="/Faq">
+          <li className="list-none" style={{ fontSize: "14px", fontWeight: "500" }}>
+            FAQ
+          </li>
+          </Link>
+          <Link href="/Contact">
+          <li className="list-none" style={{ fontSize: "14px", fontWeight: "500" }}>
+            Contact Us
+          </li>
+          </Link>
+          <Link href="/About">
+          <li className="list-none" style={{ fontSize: "14px", fontWeight: "500" }}>
+            About
+          </li>
+          </Link>
+        </div>
+
+        {/* Contact Section */}
+        <div className="contact hidden md:block">
+          <p style={{ fontSize: "14px", fontWeight: "200" }}>
             Contact:{" "}
-            <span className="font-medium text-gray-800">0300-1130040</span>
+            <span style={{ fontSize: "14px", fontWeight: "500" }}>0300-1130040</span>
           </p>
         </div>
       </div>
