@@ -22,7 +22,7 @@ export default function Navbar() {
 
         {/* Sidebar Menu */}
         <div
-          className="menu absolute flex-col bg-white w-32 pl-8 z-50 transition-transform"
+          className="menu absolute flex-col bg-white w-32 pl-8  z-50 transition-transform"
           style={{ transform: `translateX(${istrans}%)` }} // Fixed syntax
         >
           <i
@@ -33,7 +33,7 @@ export default function Navbar() {
           <ul>
             <Link href="/">
             <li
-              className="list-none"
+              className="list-none pb-[8px]"
               style={{ fontSize: "14px", fontWeight: "500", color: "#007580" }}
             >
               Home
@@ -43,28 +43,28 @@ export default function Navbar() {
 
 
             <Link href="/AllProducts">
-            <li className="list-none" style={{ fontSize: "14px", fontWeight: "500" }}>
+            <li className="list-none pb-[8px]" style={{ fontSize: "14px", fontWeight: "500" }}>
               Products
             </li>
             </Link>
 
             
            <Link href="/Faq">
-           <li className="list-none" style={{ fontSize: "14px", fontWeight: "500" }}>
+           <li className="list-none pb-[8px]" style={{ fontSize: "14px", fontWeight: "500" }}>
               FAQ
             </li>
            </Link>
 
 
             <Link href="/Contact">
-            <li className="list-none" style={{ fontSize: "14px", fontWeight: "500" }}>
+            <li className="list-none pb-[8px]" style={{ fontSize: "14px", fontWeight: "500" }}>
               Contact Us
             </li>
             </Link>
 
 
             <Link href="/About">
-            <li className="list-none" style={{ fontSize: "14px", fontWeight: "500" }}>
+            <li className="list-none pb-[8px]" style={{ fontSize: "14px", fontWeight: "500" }}>
               About
             </li>
             </Link>
